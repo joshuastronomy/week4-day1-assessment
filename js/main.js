@@ -13,6 +13,9 @@ It should return the date for Indepencence Day.
 
   //Your code here.
 
+  var date = new Date('July 4, 1776');
+
+
   console.log( "Independence Day date: ", date );
   console.assert( date == "Thu Jul 04 1776 00:00:00 GMT-0400 (EDT)", "#1: Test failed. Check the parameters. Returned: " + date )
 } )();
@@ -28,6 +31,8 @@ It should return new year's day for 2018.
   "use strict";
 
   //Your code here.
+  var date = new Date('01 01 2018');
+  return date;
 
 console.log( "Happy new year!: ", date );
 console.assert( date == "Thu Feb 01 2018 00:00:00 GMT-0400 (EDT)", "#2: Test failed. Check the parameters. Returned: " + date )
@@ -45,6 +50,7 @@ See assertion for date and time.
   "use strict";
 
   //Your code here.
+  var date = new Date("October 13, 1975 11:13:00");
 
   console.log( "Day and time: ", date );
   console.assert( date == "Mon Oct 13 1975 11:13:00 GMT-0400 (EDT)", "#3: Test failed. Check the parameters. Returned: " + date )
@@ -62,6 +68,9 @@ HINT: you will need to use 'getFullYear()' for one of the variables.
 
 //date variable here
 //year variable here
+
+var date = new Date();
+var year = date.getFullYear();
 
   console.log( "Current year: ", year );
   console.assert( year == "2017", "#4: Test failed. Check the function. Are you 'getting' the full year?. Returned: " + date )
@@ -81,6 +90,7 @@ It should round a the `num` variable to be 184. Use the appropiate math method.
 
 //Your code here
 const num = 184.33;
+var roundNum = Math.floor(num);
 
  console.log( "roundNum: ", roundNum );
  console.assert( roundNum == "184", "#5: Test failed. Check your math method and parameters. Return: " + roundNum )
@@ -97,6 +107,7 @@ It should return 256. Use the appropiate math method.
   "use strict";
 
   //Your code here.
+  var power = Math.pow(16, 2);
 
   console.log( "power: ", power );
   console.assert( power == "256", "#6: Test failed. Check your math method and parameters. Return: " + power )
@@ -120,6 +131,8 @@ Edit the following object using dot notation to 'add' the missing computer compo
     memory: "4GB",
   };
  //Add missing property here.
+ computer.GPU = "nvidia";
+
   console.log( "#10: computer", computer )
   console.assert( computer.GPU == "nvidia", "Test failed. The computer should have an 'nvidia' GPU" )
 } )();
@@ -136,6 +149,13 @@ The following object is empty. Use bracket notation so that 'car' has two doors,
   var car = {};
 
 //Add properties here.
+
+car["doors"] = 2;
+car["wheels"] = 4;
+car["engine"] = true;
+car["type"] = "sport";
+car["engine-size"] = "v-8";
+car["model"] = "mustang";
 
   console.log( "#11: ", car )
   console.assert( car[ "doors" ] == 2, "#11: Test failed. See required properties" )
@@ -158,16 +178,17 @@ The global variable should be 'prius'.
 ( function() {
   "use strict";
 
-  var car = 'prius';
 
   function changeCar() {
     car = 'beattle';
   }
   changeCar();
 
+  var car = 'prius';
+
 
   console.log( "global variable: ", car );
-  console.assert( car == "prius", "#7: Test failed. Fix scope." )
+  console.assert( car == "prius", "#9: Test failed. Fix scope." )
 } )();
 
 
@@ -202,17 +223,19 @@ Where should 'multiply()' go?
 **************************************************************************************/
 
 ( function() {
-  "use strinct";
+  "use strict";
 
   function hoistThis() {
     function multiply( sum ) {
       console.assert( sum * 2 == "8", "#9: Test failed. Check your function hoisting" );
       return sum * 2;
     }
-    multiply( sum );
-    console.assert( sum == "4", "#9: Test failed. Check hoisting" );
     var sum;
     sum = 2 + 2;
+    multiply( sum );
+
+    console.assert( sum == "4", "#9: Test failed. Check hoisting" );
+
   };
   hoistThis();
 } )();
