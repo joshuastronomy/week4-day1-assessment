@@ -31,7 +31,7 @@ It should return new year's day for 2018.
   "use strict";
 
   //Your code here.
-  var date = new Date('01 01 2018');
+  var date = new Date(2018, 1, 1);
   return date;
 
 console.log( "Happy new year!: ", date );
